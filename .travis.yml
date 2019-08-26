@@ -1,9 +1,5 @@
 sudo: required
 
-os:
-#  - windows
-  - linux
-  - osx
 matrix:
   include:
     - os: linux
