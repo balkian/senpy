@@ -25,6 +25,7 @@ matrix:
         - virtualenv -p python3 --system-site-packages "$HOME/venv"
         - source "$HOME/venv/bin/activate"
     - os: windows
+      language: generic
       before_install:
         - cinst -y python3
         - refreshenv
