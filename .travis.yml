@@ -16,6 +16,15 @@ matrix:
       python: 3.7
     - os: osx
       language: generic
+      addons:
+        homebrew:
+          # update: true
+          packages: python3
+      before_install:
+        - python3 -m pip install --upgrade virtualenv
+        - virtualenv -p python3 --system-site-packages "$HOME/venv"
+        - source "$HOME/venv/bin/activate"
 # command to run tests
 script:
+  - python setup.py build_ext --inplace --force
   - python setup.py test
