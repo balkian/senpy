@@ -5,6 +5,8 @@ matrix:
     - os: linux
       language: python
       python: 3.4
+      before_install:
+        - pip install --upgrade --force-reinstall pandas
     - os: linux
       language: python
       python: 3.5
@@ -30,5 +32,4 @@ matrix:
         - cinst -y python3
 # command to run tests
 script:
-  - python3 setup.py build_ext --inplace --force
   - python3 setup.py test
