@@ -24,7 +24,11 @@ matrix:
         - python3 -m pip install --upgrade virtualenv
         - virtualenv -p python3 --system-site-packages "$HOME/venv"
         - source "$HOME/venv/bin/activate"
+    - os: windows
+      before_install:
+        - cinst -y python3
+        - refreshenv
 # command to run tests
 script:
-  - python setup.py build_ext --inplace --force
-  - python setup.py test
+  - python3 setup.py build_ext --inplace --force
+  - python3 setup.py test
