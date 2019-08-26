@@ -1,7 +1,9 @@
 sudo: required
 
-services:
-  - docker
+os:
+  - windows
+  - linux
+  - osx
 
 language: python
 
@@ -11,5 +13,8 @@ env:
   - PYV=3.6
   - PYV=3.7
 #  - PYV=3.3 # Apt fails in this docker image
-# run nosetests - Tests
-script: make test-$PYV
+install:
+  - pip install -r requirements.txt
+# command to run tests
+script:
+  - pytest
