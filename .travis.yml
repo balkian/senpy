@@ -28,7 +28,6 @@ matrix:
       language: bash
       before_install:
         - cinst -y python3
-        - refreshenv
 # command to run tests
 script:
   - python3 setup.py build_ext --inplace --force
