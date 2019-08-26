@@ -29,7 +29,10 @@ matrix:
     - os: windows
       language: bash
       before_install:
-        - cinst -y python3
+        - choco install -y python3
+        - export PATH="/c/Python37:/c/Python37/Scripts:$PATH"
+        - virtualenv $HOME/venv
+        - source $HOME/venv/Scripts/activate
 # command to run tests
 script:
   - python3 setup.py test
