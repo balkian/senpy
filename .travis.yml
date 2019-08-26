@@ -1,20 +1,17 @@
 sudo: required
 
 os:
-  - windows
+#  - windows
   - linux
   - osx
-
 language: python
-
-env:
-  - PYV=3.4
-  - PYV=3.5
-  - PYV=3.6
-  - PYV=3.7
-#  - PYV=3.3 # Apt fails in this docker image
+python:
+  - 3.4
+  - 3.5
+  - 3.6
+  - 3.7
 install:
-  - pip install -r requirements.txt
+  - pip install .
 # command to run tests
 script:
-  - pytest
+  - python setup.py test
