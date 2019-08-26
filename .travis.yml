@@ -30,9 +30,10 @@ matrix:
       language: bash
       before_install:
         - choco install -y python3
-        - export PATH="/c/Python37:/c/Python37/Scripts:$PATH"
-        - virtualenv $HOME/venv
-        - source $HOME/venv/Scripts/activate
+        - python -m pip install --upgrade pip
+      env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
 # command to run tests
+# 'python' points to Python 2.7 on macOS but points to Python 3.7 on Linux and Windows
+# 'python3' is a 'command not found' error on Windows but 'py' works on Windows only
 script:
-  - python3 setup.py test
+  - python3 setup.py test || python setup.py test
