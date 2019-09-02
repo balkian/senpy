@@ -1,6 +1,10 @@
 sudo: required
 
 matrix:
+  allow_failures:
+    # Windows is experimental in Travis.
+    # As of this writing, senpy installs but hangs on tests that use the flask test client (e.g. blueprints)
+    - os: windows
   include:
     - os: linux
       language: python
